@@ -21,11 +21,17 @@ public class Moli extends Agent {
     public void showHelloScreen() {
         ArmoryAPI.show(
             getConnection("armory"),
-            new Screen ("Hello")
-                .add(new Title("Hello world!"))
+            new Screen ("Welcome")
+                .add(new Header("mioc_logo 3.png", true)) // trebam nekako uploadati logo sa kompa
+                .add(new Title("Bok, ja sam Moli! Može anketa?"))
+                .add(new Text("Hvala ti puno što mi pomažeš <3"))
+                .add(new SubmitButton("welcomeStarted", "Idemo!", "askForGender")),
+            new Screen ("AskForGender")
+                .add(new Header("mioc_logo 3.png", true)) 
+                .add(new Title("Jesi li miočanin ili miočanka?")) //trebam dodati dva gumba koji pokrecu drukcije pravilo tako da se prilagodi spol
         );
         try {
-            sendEmail(List.of("sveba.vasic@gmail.com"), "Test title", "Test 1234");
+            sendEmail(List.of("marko.zelenovicc@gmail.com"), "Test title", "Test 12345");
             Log.info("Mail uspjesno poslan!");
         } catch(IOException ex) {
             Log.info("Exception! " + ex.toString());

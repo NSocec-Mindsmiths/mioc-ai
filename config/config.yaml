@@ -72,6 +72,8 @@ services:
     dependencies:
       - armory
       - email-adapter
+      - email-adapter
+      - email-adapter
   heartbeat:
     package: heartbeat
     type: python
